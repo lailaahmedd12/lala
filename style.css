@@ -55,6 +55,7 @@ body {
   border-radius: 12px;
   gap: 12px;
   padding-top: 180px;
+  overflow: visible;
 
   transform: scale(1.2);
   opacity: 0;
@@ -149,49 +150,52 @@ h1 {
 
 
 /* ============================= */
-/* FINAL HEART: bigger + glow + animation */
+/* FINAL HEART — BIG + VERY GLOWY */
 /* ============================= */
 
 #couple-photo{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: -12px;         /* closer to bubble */
-  padding-bottom: 6px;
+  gap: 12px;
+  margin-top: -18px;
+  padding-bottom: 8px;
 }
 
-/* Bigger heart wrapper */
+/* BIG heart container */
 #couple-photo .heart-frame{
-  width: 300px;
-  height: 300px;
+  width: 340px;
+  height: 340px;
   position: relative;
   display: grid;
   place-items: center;
 
-  animation: floaty 3.2s ease-in-out infinite;
+  animation: floaty 3.5s ease-in-out infinite;
 }
 
-/* Big glowing “lights” behind */
+/* MASSIVE glowing aura */
 #couple-photo .heart-frame::before{
   content: "";
   position: absolute;
-  inset: -60px;
-  background: radial-gradient(circle,
-    rgba(255,105,180,0.80),
-    rgba(255,105,180,0.25) 45%,
-    transparent 72%
-  );
-  filter: blur(18px);
+  inset: -85px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle,
+      rgba(255,105,180,0.95),
+      rgba(255,105,180,0.55) 35%,
+      rgba(255,105,180,0.25) 55%,
+      transparent 75%
+    );
+  filter: blur(26px);
   z-index: 0;
 
-  animation: glowPulse 2.0s ease-in-out infinite;
+  animation: glowPulse 1.9s ease-in-out infinite;
 }
 
 /* Heart-shaped photo */
 #couple-photo .heart-frame img{
-  width: 300px;
-  height: 300px;
+  width: 340px;
+  height: 340px;
   object-fit: cover;
   position: relative;
   z-index: 1;
@@ -221,32 +225,32 @@ h1 {
   );
 
   box-shadow:
-    0 0 0 10px rgba(255,240,240,0.84),
-    0 0 28px rgba(255,105,180,0.80),
-    0 0 60px rgba(255,105,180,0.45);
+    0 0 0 12px rgba(255,240,240,0.9),
+    0 0 40px rgba(255,105,180,0.9),
+    0 0 90px rgba(255,105,180,0.65);
 }
 
 /* Caption */
 #couple-photo .photo-caption{
-  font-size: 20px;
+  font-size: 21px;
   margin: 0;
-  padding: 8px 16px;
-  border-radius: 14px;
-  background: rgba(255, 240, 240, 0.55);
+  padding: 8px 18px;
+  border-radius: 16px;
+  background: rgba(255, 240, 240, 0.6);
   text-align: center;
-  text-shadow: 0 0 10px rgba(255,105,180,0.55);
+  text-shadow: 0 0 12px rgba(255,105,180,0.75);
 }
 
 /* Animations */
 @keyframes glowPulse{
-  0%   { transform: scale(0.92); opacity: 0.75; }
-  50%  { transform: scale(1.10); opacity: 1; }
-  100% { transform: scale(0.92); opacity: 0.75; }
+  0%   { transform: scale(0.9); opacity: 0.7; }
+  50%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
 }
 
 @keyframes floaty{
   0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-7px); }
+  50%  { transform: translateY(-9px); }
   100% { transform: translateY(0px); }
 }
 
