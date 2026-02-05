@@ -147,42 +147,51 @@ h1 {
 /* Couple photo (REAL HEART + GLOW) */
 /* ============================= */
 
+
 /* ============================= */
-/* Couple photo (BIGGER + BETTER PLACED) */
+/* FINAL HEART: bigger + glow + animation */
 /* ============================= */
 
-#couple-photo {
+#couple-photo{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-top: -6px;      /* pulls it closer to the bubble */
+  margin-top: -12px;         /* closer to bubble */
   padding-bottom: 6px;
 }
 
-/* Heart wrapper */
-.heart-frame {
-  width: 240px;          /* bigger heart */
-  height: 240px;
+/* Bigger heart wrapper */
+#couple-photo .heart-frame{
+  width: 300px;
+  height: 300px;
   position: relative;
   display: grid;
   place-items: center;
+
+  animation: floaty 3.2s ease-in-out infinite;
 }
 
-/* Bigger glow behind */
-.heart-frame::before {
+/* Big glowing “lights” behind */
+#couple-photo .heart-frame::before{
   content: "";
   position: absolute;
-  inset: -34px;          /* bigger glow/frame */
-  background: radial-gradient(circle, rgba(255, 105, 180, 0.55), transparent 65%);
-  filter: blur(14px);
+  inset: -60px;
+  background: radial-gradient(circle,
+    rgba(255,105,180,0.80),
+    rgba(255,105,180,0.25) 45%,
+    transparent 72%
+  );
+  filter: blur(18px);
   z-index: 0;
+
+  animation: glowPulse 2.0s ease-in-out infinite;
 }
 
 /* Heart-shaped photo */
-.heart-frame img {
-  width: 240px;
-  height: 240px;
+#couple-photo .heart-frame img{
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   position: relative;
   z-index: 1;
@@ -212,110 +221,40 @@ h1 {
   );
 
   box-shadow:
-    0 0 0 7px rgba(255, 240, 240, 0.78),
-    0 0 24px rgba(255, 105, 180, 0.55);
+    0 0 0 10px rgba(255,240,240,0.84),
+    0 0 28px rgba(255,105,180,0.80),
+    0 0 60px rgba(255,105,180,0.45);
 }
 
 /* Caption */
-#couple-photo .photo-caption {
+#couple-photo .photo-caption{
   font-size: 20px;
   margin: 0;
   padding: 8px 16px;
   border-radius: 14px;
   background: rgba(255, 240, 240, 0.55);
   text-align: center;
-  text-shadow: 0 0 10px rgba(255, 105, 180, 0.55);
-}
-/* ===== Bigger heart + animated glow lights ===== */
-
-.heart-frame{
-  width: 270px !important;
-  height: 270px !important;
-  position: relative;
-  display: grid;
-  place-items: center;
-
-  /* subtle floating animation */
-  animation: floaty 3.2s ease-in-out infinite;
-}
-
-/* BIG animated glow behind */
-.heart-frame::before{
-  content: "";
-  position: absolute;
-  inset: -45px !important;
-  border-radius: 999px;
-  background: radial-gradient(circle,
-    rgba(255, 105, 180, 0.70),
-    rgba(255, 105, 180, 0.20) 45%,
-    transparent 70%
-  );
-  filter: blur(14px);
-  z-index: 0;
-
-  animation: glowPulse 2.2s ease-in-out infinite;
-}
-
-/* heart photo */
-.heart-frame img{
-  width: 270px !important;
-  height: 270px !important;
-  object-fit: cover;
-  position: relative;
-  z-index: 1;
-
-  /* keep the heart shape */
-  clip-path: polygon(
-    50% 92%,
-    42% 86%,
-    34% 78%,
-    26% 68%,
-    18% 56%,
-    14% 44%,
-    16% 32%,
-    24% 22%,
-    34% 16%,
-    44% 18%,
-    50% 26%,
-    56% 18%,
-    66% 16%,
-    76% 22%,
-    84% 32%,
-    86% 44%,
-    82% 56%,
-    74% 68%,
-    66% 78%,
-    58% 86%
-  );
-
-  box-shadow:
-    0 0 0 8px rgba(255, 240, 240, 0.80),
-    0 0 22px rgba(255, 105, 180, 0.70),
-    0 0 40px rgba(255, 105, 180, 0.45);
-}
-
-/* Make it sit closer to the bubble (optional but nicer) */
-#couple-photo{
-  margin-top: -10px !important;
+  text-shadow: 0 0 10px rgba(255,105,180,0.55);
 }
 
 /* Animations */
 @keyframes glowPulse{
-  0%   { transform: scale(0.95); opacity: 0.75; }
-  50%  { transform: scale(1.08); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.75; }
+  0%   { transform: scale(0.92); opacity: 0.75; }
+  50%  { transform: scale(1.10); opacity: 1; }
+  100% { transform: scale(0.92); opacity: 0.75; }
 }
 
 @keyframes floaty{
   0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-6px); }
+  50%  { transform: translateY(-7px); }
   100% { transform: translateY(0px); }
 }
 
-/* Respect people who prefer reduced motion */
 @media (prefers-reduced-motion: reduce){
-  .heart-frame,
-  .heart-frame::before{
-    animation: none !important;
+  #couple-photo .heart-frame,
+  #couple-photo .heart-frame::before{
+    animation: none;
   }
 }
+
+
