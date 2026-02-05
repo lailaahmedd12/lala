@@ -13,6 +13,70 @@
       rel="stylesheet"
     />
     <title>Document</title>
+    <style>
+/* === FORCE HEART PHOTO STYLE (INLINE, NO CACHE) === */
+
+#couple-photo{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#couple-photo p{
+  font-size: 22px;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background: rgba(255,240,240,0.6);
+  text-align: center;
+}
+
+.heart-frame{
+  width: 220px;
+  height: 200px;
+  position: relative;
+  transform: rotate(-45deg);
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow:
+    0 0 20px rgba(255,105,180,0.9),
+    0 0 40px rgba(255,105,180,0.6),
+    0 0 70px rgba(255,182,193,0.5);
+}
+
+.heart-frame::before,
+.heart-frame::after{
+  content:"";
+  position:absolute;
+  width: 220px;
+  height: 220px;
+  background: rgba(255,192,203,0.2);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.heart-frame::before{
+  top: -110px;
+  left: 0;
+}
+
+.heart-frame::after{
+  top: 0;
+  left: 110px;
+}
+
+.heart-frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(45deg) scale(1.25);
+  position: relative;
+  z-index: 2;
+}
+</style>
+
   </head>
   <body>
     <!-- Envelope Screen -->
