@@ -231,7 +231,7 @@ h1 {
 }
 
 /* Caption */
-#couple-photo .photo-caption{
+#photo-caption{
   font-size: 21px;
   margin: 0;
   padding: 8px 18px;
@@ -262,61 +262,67 @@ h1 {
 }
 
 /* ============================= */
-/* ===== CLEAN FINAL LAYOUT ===== */
-.letter-window.final{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "title title"
-    "cat   heart"
-    "date  date"
-    "cap   cap";
-  justify-items: center;
+/* FINAL LAYOUT (cat + heart row) */
+/* ============================= */
+
+/* Only in final mode, make the top row side-by-side */
+.letter-window.final .final-row{
+  display: flex;
   align-items: center;
-  gap: 14px 22px;
+  justify-content: center;
+  gap: 60px;
+  width: 100%;
+  margin-top: 6px;
 }
 
-/* Title stays centered */
-.letter-window.final .final-title{
-  grid-area: title;
-  margin: 0;
-}
-
-/* Cat left */
+/* Cat size */
 .letter-window.final #letter-cat{
-  grid-area: cat;
-  margin: 0;
   width: 210px;
+  margin: 0;
 }
 
-/* Heart right */
+/* Heart position */
 .letter-window.final #couple-photo{
-  grid-area: heart;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Date bubble full width */
-.letter-window.final #final-text{
-  grid-area: date;
   margin: 0;
+  padding: 0;
 }
 
-/* Caption full width */
+/* Center + make bubbles the same width (cleaner) */
+.letter-window.final #final-text,
 .letter-window.final #photo-caption{
-  grid-area: cap;
+  width: min(640px, 85%);
   margin: 0;
 }
 
-/* Mobile: stack nicely */
+/* Caption styling (YOUR caption is #photo-caption now, not inside couple-photo) */
+#photo-caption.photo-caption{
+  font-size: 21px;
+  padding: 8px 18px;
+  border-radius: 16px;
+  background: rgba(255, 240, 240, 0.6);
+  text-align: center;
+  text-shadow: 0 0 12px rgba(255,105,180,0.75);
+}
+
+/* Mobile: stack */
 @media (max-width: 700px){
-  .letter-window.final{
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "title"
-      "cat"
-      "heart"
-      "date"
-      "cap";
+  .letter-window.final .final-row{
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .letter-window.final #letter-cat{
+    width: 190px;
+  }
+
+  #couple-photo .heart-frame{
+    width: 300px;
+    height: 300px;
+  }
+
+  #couple-photo .heart-frame img{
+    width: 300px;
+    height: 300px;
   }
 }
+
