@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css?v=999" />
+    <link rel="stylesheet" href="style.css?v=1000" />
     <title>Valentine Letter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -24,8 +24,18 @@
     <!-- Letter Screen -->
     <div id="letter-container">
       <div class="letter-window">
-       <h1 id="letter-title" class="final-title">Will you be my Valentine?</h1>
-        <img src="cat_heart.gif" class="cat" id="letter-cat" />
+        <h1 id="letter-title" class="final-title">Will you be my Valentine?</h1>
+
+        <!-- ROW: cat + heart side-by-side -->
+        <div class="final-row">
+          <img src="cat_heart.gif" class="cat" id="letter-cat" />
+
+          <div id="couple-photo" style="display: none">
+            <div class="heart-frame">
+              <img src="us.jpg" alt="Me and my boyfriend" />
+            </div>
+          </div>
+        </div>
 
         <div class="buttons" id="letter-buttons">
           <img src="yes.png" class="btn yes-btn" alt="Yes" />
@@ -35,17 +45,12 @@
           </div>
         </div>
 
+        <!-- TEXT 1 -->
         <p id="final-text" class="final-text" style="display: none">
-          <strong>Valentine Date:</strong> come to germany my pookie!!💘💘💘💘💘
+          <strong>Valentine Date:</strong> come to germany my pookie!! 💘💘💘💘💘
         </p>
 
-        <!-- Couple photo (hidden until YES) -->
-        <div id="couple-photo" style="display: none">
-          <div class="heart-frame">
-            <img src="us.jpg" alt="Me and my boyfriend" />
-          </div>
-        </div>
-        
+        <!-- TEXT 2 -->
         <p id="photo-caption" class="photo-caption" style="display: none">
           me and my boobi pookie 💞
         </p>
