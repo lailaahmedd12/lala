@@ -262,68 +262,61 @@ h1 {
 }
 
 /* ============================= */
-/* FINAL LAYOUT: cat + heart side-by-side */
-/* ============================= */
-
+/* ===== CLEAN FINAL LAYOUT ===== */
 .letter-window.final{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "cat heart"
-    "date date"
-    "cap cap";
-  align-items: center;
+    "title title"
+    "cat   heart"
+    "date  date"
+    "cap   cap";
   justify-items: center;
-  gap: 12px 18px;
+  align-items: center;
+  gap: 14px 22px;
 }
 
-/* Put the cat on the left */
-.letter-window.final #letter-cat{
-  grid-area: cat;
-  width: 200px;          /* adjust if you want */
+/* Title stays centered */
+.letter-window.final .final-title{
+  grid-area: title;
   margin: 0;
 }
 
-/* Put the heart/photo on the right */
+/* Cat left */
+.letter-window.final #letter-cat{
+  grid-area: cat;
+  margin: 0;
+  width: 210px;
+}
+
+/* Heart right */
 .letter-window.final #couple-photo{
   grid-area: heart;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Valentine Date bubble goes under both */
+/* Date bubble full width */
 .letter-window.final #final-text{
   grid-area: date;
-  margin-top: 8px;
+  margin: 0;
 }
 
-/* Caption goes under the date */
-.letter-window.final #couple-photo .photo-caption{
+/* Caption full width */
+.letter-window.final #photo-caption{
   grid-area: cap;
-  margin-top: 6px;
+  margin: 0;
 }
 
-/* Make caption sit as its own line centered */
-.letter-window.final #couple-photo{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Mobile: stack them vertically (looks better on phones) */
+/* Mobile: stack nicely */
 @media (max-width: 700px){
   .letter-window.final{
     grid-template-columns: 1fr;
     grid-template-areas:
+      "title"
       "cat"
       "heart"
       "date"
       "cap";
   }
-
-  .letter-window.final #letter-cat{
-    width: 190px;
-  }
 }
-
